@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumen — Learn by seeing it</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>Lumen</span><span class="brand-note">AI WHITEBOARD TUTOR</span></div>
+      <div class="topbar-actions"><button class="ghost-button" id="newLessonButton">+ New lesson</button><span class="avatar">RS</span></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <div class="sidebar-section"><div class="section-label">TODAY</div><button class="lesson-item active"><span class="lesson-dot"></span><span><strong>Photosynthesis</strong><small>In progress · 04:12</small></span><span class="more">···</span></button><button class="lesson-item"><span class="lesson-dot muted"></span><span><strong>How do airplanes fly?</strong><small>Yesterday · 06:34</small></span></button></div>
+        <div class="sidebar-section"><div class="section-label">YOUR LIBRARY</div><button class="library-link">⌕ <span>Search lessons</span></button><button class="library-link">◷ <span>Learning history</span></button></div>
+        <div class="sidebar-footer"><div class="upgrade-card"><span class="spark">✦</span><strong>Make every idea click.</strong><p>Ask Lumen to explain anything, visually.</p><button id="upgradeButton">Explore Lumen Pro <span>→</span></button></div><div class="user-row"><span class="avatar small">RS</span><span><strong>Rohan Shinde</strong><small>Free plan</small></span><span class="more">···</span></div></div>
+      </aside>
+
+      <section class="content">
+        <form class="topic-composer" id="lessonComposer"><div class="composer-spark">✦</div><div class="composer-copy"><strong>What do you want to understand?</strong><span>Ask Lumen for a visual lesson on any topic.</span></div><input id="topicInput" placeholder="e.g. How do airplanes fly?" autocomplete="off" /><button type="submit">Teach me <span>→</span></button></form>
+        <div class="content-head"><div><div class="eyebrow">SCIENCE · BEGINNER</div><h1 id="lessonTitle">Photosynthesis</h1><p class="subtitle" id="lessonSubtitle">How plants turn sunlight into the energy that powers life.</p></div><div class="head-actions"><button class="icon-button" title="Share lesson">↗</button><button class="icon-button" title="More options">···</button></div></div>
+        <div class="lesson-layout">
+          <section class="board-panel">
+            <div class="board-toolbar"><div class="live-pill"><span></span> LIVE BOARD</div><div class="board-tools"><button class="tool active" data-tool="select">↖</button><button class="tool" data-tool="pen">╱</button><button class="tool" data-tool="eraser">⌫</button><button class="tool" id="clearBoard">↺</button></div><div class="board-meta">AUTO-SAVED <span>·</span> 2 MIN LESSON</div></div>
+            <div class="board-wrap"><canvas id="board" width="900" height="560"></canvas><div class="board-note" id="boardNote">Welcome to your visual lesson <span>✦</span></div></div>
+            <div class="transport"><div class="transport-row"><button class="transport-button" id="restartButton" title="Restart">↶</button><button class="play-button" id="playButton" title="Play lesson">▶</button><button class="transport-button" id="nextButton" title="Next step">↷</button><div class="progress-wrap"><div class="progress-label"><span id="stepLabel">Step 1 of 5 · The big idea</span><span id="timeLabel">00:00 / 02:00</span></div><input id="progress" type="range" min="0" max="120" value="0" /></div><button class="speed-button" id="speedButton">1×</button><button class="volume-button" id="volumeButton">◖</button></div></div>
+          </section>
+          <aside class="tutor-panel"><div class="tutor-header"><div class="tutor-avatar">✦</div><div><strong>Lumen</strong><span>Your visual tutor</span></div><span class="status-dot"></span></div><div class="transcript" id="transcript"><div class="message tutor-message"><span class="message-label">LUMEN <small>· NOW</small></span><p>Let’s make photosynthesis click. I’ll draw the journey from sunlight to sugar, one step at a time.</p></div><div class="message tutor-message"><span class="message-label">LUMEN <small>· 00:08</small></span><p id="currentNarration">Every plant is a tiny solar-powered kitchen. The leaves collect light, then use it to make food.</p></div></div><div class="ask-area"><div class="ask-suggestions"><button data-suggestion="Why is chlorophyll green?">Why is chlorophyll green?</button><button data-suggestion="Can you give me an analogy?">Give me an analogy</button></div><div class="ask-box"><input id="questionInput" placeholder="Ask a follow-up question..." autocomplete="off" /><button id="askButton">↑</button></div><div class="powered">◈ AI-GENERATED · YOUR QUESTIONS STAY IN THIS LESSON</div></div></aside>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
